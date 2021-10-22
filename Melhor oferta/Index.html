@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Melhor consumo</title>
+</head>
+
+<body>
+
+    <h2> Melhor combustivel </h2>
+    <form>
+        <h4> Tipo de veiculo </h4>
+        <tr>
+            <th> <input type="checkbox">Carro</th>
+            <th> <input type="checkbox"> Motos </th>
+        </tr>
+
+        <h4> Valor do combustivel </h4>
+        <input type="number" placeholder="gasolina" id="gsl"> <br>
+        <br> <input type="number" placeholder="alcool" id="alc"> <br>
+        <br> <input type="button" value="calcular" onclick="even()"><br>
+        <br> <input type="reset" value="continuar" onclick="retorna()"><br>
+    </form>
+
+    <p id="log"></p>
+    <p id="res"></p>
+
+    <script>
+        function retorna() {
+            let conf = confirm('Deseja continuar?')
+            if (conf == true) {
+                even();
+            }
+            else {
+                document.write('calculo encerrado')
+            }
+        }
+
+        function even() {
+            let volta = window.document.getElementById('gsl')
+            let volt = window.document.getElementById('alc')
+            let n1 = Number(volta.value) //tipo Number vai buscar o valor 
+            let n2 = Number(volt.value)  //tipo Number vai buscar o valor
+            let total = (n1 / n2);
+            let a = window.document.getElementById('res')
+
+            if (total < 0.7) {
+                a.innerText = 'Compensa o alcool'
+            }
+            else {
+                a.innerText = 'Compensa gasolina' // `Consumo:  ${total} %`
+            }
+
+            log.innerHTML = ('Melhor Consumo' + total.toFixed(2) + '%');
+        }
+    </script>
+
+</body>
+
+</html>

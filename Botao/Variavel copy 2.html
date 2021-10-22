@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #div {
+        width: 200px;
+        height: 200px;
+        border: 1px solid #000;
+        background-color: #f00;
+        position: absolute;
+        left: 200px;
+        top: 0px;
+    }
+</style>
+
+<body>
+<p> Trocar Cor / Usando Eventos </p>
+    <div id="div"> </div>
+
+
+    <div>
+        <dt>
+    <button id="but">Passe o Mouse </button>
+</dt> <br>
+    <dt>
+     <button id = "Segure"> Clique   </button> 
+    </dt> <br>
+
+    <button id="ela"> Clique </button>
+        
+</div>
+    <script>
+        function msg() {
+            var r = document.getElementById("div");
+            r.style.backgroundColor="green";
+        }
+        function cor1() {
+            var p = document.getElementById("div");
+            p.style.backgroundColor = "#000";
+        }
+        function cor2() {
+            var t = document.getElementById("div");
+            t.style.backgroundColor = "#f00";
+        }
+        function cor3() {
+            var w = document.getElementById("div");
+            w.style.backgroundColor = "pink";
+        }
+
+        function addEventos() {
+            
+
+            var objeto = document.getElementById("Segure"); // localizar o id no html
+            objeto.addEventListener("mousedown", msg);
+            
+            var esse = document.getElementById("but");
+            esse.addEventListener("mouseover", cor1);
+            esse.addEventListener("mouseout", cor2)
+
+            var q = document.getElementById("ela");
+            q.addEventListener("click", cor3);
+           
+        }
+
+        // Carrega os elementos na pagina antes de começar 
+        window.addEventListener("load", addEventos);
+
+    </script>
+
+</body>
+
+</html> 
